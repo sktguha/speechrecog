@@ -1,0 +1,68 @@
+<head>
+</head>
+<body>
+<script>
+//var masterVideoSrc = 'http://srv69.clipconverter.cc/download/tq%2B1m6aSraKwZ3BtmpabaGms26SqaXK0l5eWbm5mnmhtarV70szTe6ie3pemp56q/Iron%20Man%20Mark%20II%20Test%20Flight.mp4';
+var masterVideoSrc = '/im.mp4';
+var annyangSrc = "/annyang.js";
+document.body.innerHTML = "";
+var vd = document.createElement('video');
+vd.src = masterVideoSrc;
+vd.controls = true;
+vd.style.width = '900px';
+vd.style.height = '200px';
+document.body.appendChild(vd);
+vd.play();
+var tab = document.createElement("table");
+tab.innerHTML  = "<tr><td id='i'></td><td id = 'c'></td></tr>";
+document.body.appendChild(tab);
+var ins = document.getElementById('i');
+var con = document.getElementById('c');
+var sc = document.createElement("script");
+sc.src = annyangSrc;
+document.body.appendChild(sc);
+sc.onload = main;
+function main(){
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  console.log("main started");
+  var commands = {
+    'jarvis you there': [3,5],
+    'engage (heads-up) display' : [6.5,8],
+    'import all preferences from home interface' : [9.5, 11.5],
+    'alright what we say' : [19,21],
+    'start the virtual (walkaround)' : [24.5,26],
+    'little check on control surfaces' : [29,31],
+    'uh yeah. tell you what. (do weather and ATC check).start listening in on ground control' : [57,],
+    'uh yeah. tell you what, do a weather and atc check , start listening in on ground control' : [56,62],
+    'Jarvis, sometimes you gotta run before you can walk. (ready and 321)' : [66,72]
+  };
+  var nCom = {};
+  for(var i in commands){
+      nCom[i] = new Function("vd.currentTime="+commands[i][1]+"; console.log('jump to "+commands[i][1]+"'); vd.play()");
+  }
+  // Add our commands to annyang
+  annyang.addCommands(nCom);
+    setInterval(function(){
+           for(var i in commands){
+               if(Math.abs(commands[i][0] - vd.currentTime) < 0.5 && !commands[i].paused){
+                   vd.pause();
+                   ins.innerText = "Speak " + i + " \n" + ins.innerText; // .split("(").join("").split(")").join("");
+                   commands[i].paused = true;
+                   break;
+               }
+           }
+    }, 100);
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  /*
+  var old = console.log.bind(console);
+  console.log = function(){
+    con.innerText += "\n" + arguments[0];
+    old.apply(console, arguments);
+  } */
+  annyang.debug(true);
+  annyang.start();
+}
+}
+</script>
+</body>
