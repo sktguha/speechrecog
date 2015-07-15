@@ -1,10 +1,11 @@
 <head>
 </head>
 <body>
+<script src = "/annyang.js">
+</script>
 <script>
 var masterVideoSrc = 'http://srv57.clipconverter.cc/download/rJzPhYp8ypiwZ3BtmpabaGms26SqaHC0l5eWb2lgnWpkZbV70szTe6ie3pemp56q/Iron%20Man%20Mark%20II%20Test%20Flight.3gp';
 //var masterVideoSrc = '/im.mp4';
-var annyangSrc = "/annyang.js";
 document.body.innerHTML = "";
 var vd = document.createElement('video');
 vd.src = masterVideoSrc;
@@ -18,10 +19,7 @@ tab.innerHTML  = "<tr><td id='i'></td><td id = 'c'></td></tr>";
 document.body.appendChild(tab);
 var ins = document.getElementById('i');
 var con = document.getElementById('c');
-var sc = document.createElement("script");
-sc.src = annyangSrc;
-document.body.appendChild(sc);
-sc.onload = main;
+main();
 function main(){
 if (annyang) {
   // Let's define our first command. First the text we expect, and then the function it should call
