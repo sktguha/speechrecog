@@ -10,6 +10,7 @@ document.body.innerHTML = "";
 var vd = document.createElement('video');
 vd.src = masterVideoSrc;
 vd.controls = true;
+vd.preload = 'auto';
 vd.style.width = '900px';
 vd.style.height = '200px';
 document.body.appendChild(vd);
