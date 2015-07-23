@@ -4,6 +4,7 @@ A simple demo of speech recognition based on iron man's video
 As of now there is a small bug in the HTML file. So it is better to download the video file from https://www.dropbox.com/s/tl9w8dcnaho6j98/Iron%20Man%20Mark%20II%20Test%20Flight.mp4?dl=1
 and serve it from localhost server and also change line 8 in im.html to that address , for example
 var masterVideoSrc = 'localhost/iron_man.mp4';
+Also the localhost server needs to serve pages through HTTPS , else voice recognition is very slow on HTTP and requires repeated permissions
 
 to visit current demo visit
 https://rawgit.com/sktguha/speechrecog/master/im.html
