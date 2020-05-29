@@ -6,8 +6,8 @@ and serve it from localhost server and also change line 8 in im.html to that add
 var masterVideoSrc = 'localhost/iron_man.mp4';
 Also the localhost server needs to serve pages through HTTPS , else voice recognition is very slow on HTTP and requires repeated permissions
 
-https://rawcdn.githack.com/sktguha/speechrecog/9ce013376a957afec0dc85cc4eb98ec1f9e92054/im.html
-https://rawgit.com/sktguha/speechrecog/master/im.html
+< a href="https://rawcdn.githack.com/sktguha/speechrecog/9ce013376a957afec0dc85cc4eb98ec1f9e92054/im.html">Demo</a>
+
 The user has to speak the required words in place of iron man. They are shown instructions as speak "jarvis you there".
 The video pauses at the points where iron man speaks, and on user speaking the required phrase, the video skips to the part where jarvis responds.
 Currently the video is restarting at every seek. Instead of using html5 video player directly, it is better to use youtube api in future
